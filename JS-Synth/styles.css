@@ -1,25 +1,105 @@
 :root {
-    --primary: #00f2ff;
-    --bg: #1a1a2e;
-}
+      --primary: #00f2ff;
+      --accent: #7000ff;
+      /* Imagen de fondo (puedes cambiar esta URL por la que gustes) */
+      --bg-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070');
+    }
 
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: white;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      /* Configuración del Background */
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-h1{
-    margin-bottom: 2rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    text-shadow: 0 0 15px var(--primary);
-}
+    /* Capa oscura para que el texto y las teclas resalten */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 10, 25, 0.85);
+      z-index: 0;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 2.5rem;
+      font-weight: 200;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: white;
+      text-shadow: 0 0 15px var(--primary);
+    }
+
+    .synth {
+      display: flex;
+      gap: 12px;
+      perspective: 1000px;
+    }
+
+    .key {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.8rem 1rem;
+      transition: all .1s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 75px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    kbd {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      pointer-events: none;
+    }
+
+    .note {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      margin-top: 8px;
+      color: var(--primary);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    /* Efecto al presionar */
+    .playing {
+      transform: translateY(4px) scale(0.98);
+      border-color: var(--primary);
+      box-shadow: 0 0 30px var(--primary), inset 0 0 10px var(--primary);
+      background: rgba(0, 242, 255, 0.15);
+    }
+
+    .instructions {
+      margin-top: 3rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
