@@ -35,6 +35,25 @@
       z-index: 0;
     }
 
+     .brand-container {
+      margin-bottom: 3rem;
+      transition: transform 0.05s ease-out; /* Suaviza el rebote */
+      will-change: transform, filter;
+    }
+
+    .logo{
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: 10px;
+        color: white;
+        text-align: center;
+    }
+
+    .logo span{
+        font-weight: 200;
+        color: var(--primary);
+    }
+    
     .content-wrapper {
       position: relative;
       z-index: 1;
@@ -52,8 +71,8 @@
 
     .synth {
       display: flex;
-      gap: 12px;
-      perspective: 1000px;
+      gap: 10px;
+      
     }
 
     .key {
