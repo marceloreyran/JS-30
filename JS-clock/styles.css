@@ -1,0 +1,44 @@
+:root {
+    --clock-size: 350px;
+    --glass-bg: rbga(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    background: #0f172a;
+    background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+    font-family:'Inter', system-ui, sans-serif;
+
+}
+
+.clock {
+    width: var(--clock-size);
+    height: var(--clock-size);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+}
+
+.clock::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #38bdf8;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 10;
+    box-shadow:  0 0 10px #38dbf8;
+}
